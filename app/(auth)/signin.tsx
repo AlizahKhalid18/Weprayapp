@@ -42,7 +42,9 @@ export default function App() {
 
       <View style={styles.socialContainer}>
         <TouchableOpacity style={styles.socialButton}>
+        <Link href={"/googlevia"}>
           <Icon name="google" size={28} color="#332218" />
+          </Link>
         </TouchableOpacity>
         <TouchableOpacity style={styles.socialButton}>
           <Icon name="facebook" size={28} color="#111111" />
