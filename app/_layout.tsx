@@ -1,14 +1,28 @@
 import { Stack } from "expo-router";
+import { StatusBar } from "expo-status-bar";
+import { View } from "react-native";
 import "react-native-reanimated";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function RootLayout() {
+  const insets = useSafeAreaInsets();
   return (
-    <Stack>
-      <Stack.Screen name="(dashboard)" options={{ headerShown: false }} />
-      <Stack.Screen name="(auth)/signin" options={{ headerShown: false }} />
-      <Stack.Screen name="(auth)/signup" options={{ headerShown: false }} />
-      <Stack.Screen name="(auth)/googlevia" options={{ headerShown: false }} />
-      <Stack.Screen name="+not-found" />
-    </Stack>
+    <View
+      style={{
+        marginTop: insets.top,
+        // paddingBottom: insets.bottom,
+        flex: 1,
+      }}
+    >
+      <Stack
+        screenOptions={{
+          headerShown: false,
+          contentStyle: { backgroundColor: "white" },
+        }}
+      >
+        <Stack.Screen name="+not-found" />
+      </Stack>
+      <StatusBar style='dark' />
+    </View>
   );
 }
